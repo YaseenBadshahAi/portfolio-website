@@ -43,6 +43,12 @@
   /* ---------- hero ---------- */
   header{min-height:100svh;display:flex;align-items:center;position:relative;
     padding:120px 0 80px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;text-align:center}
+    .cta,.stats{justify-content:center}.sub{margin-left:auto;margin-right:auto}}
+  .profile-pic{width:100%;max-width:340px;aspect-ratio:1;border-radius:50%;object-fit:cover;
+    border:3px solid rgba(124,92,255,.55);box-shadow:0 24px 70px rgba(124,92,255,.32);
+    justify-self:center}
   .orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35;pointer-events:none}
   .orb1{width:520px;height:520px;background:var(--accent);top:-160px;left:-120px}
   .orb2{width:420px;height:420px;background:var(--accent2);bottom:-140px;right:-100px;opacity:.22}
@@ -133,7 +139,8 @@
 
 <header id="top">
   <div class="orb orb1"></div><div class="orb orb2"></div>
-  <div class="wrap">
+  <div class="wrap hero-grid">
+   <div>
     <span class="kicker reveal">AI Video Creator &amp; Digital Marketer</span>
     <h1 class="reveal">Yaseen <span class="grad">Badshah</span></h1>
     <p class="sub reveal">Helping brands grow with cinematic AI videos, scroll-stopping UGC ads and content strategy — high-end creative, without the massive production budget.</p>
@@ -146,6 +153,8 @@
       <div class="stat"><b>500+</b><span>LinkedIn connections</span></div>
       <div class="stat"><b>3</b><span>Core services</span></div>
     </div>
+   </div>
+   <img class="profile-pic reveal" src="profile.jpg" alt="Yaseen Badshah" />
   </div>
 </header>
 
