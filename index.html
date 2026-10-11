@@ -157,6 +157,57 @@
   .work-body p{color:var(--muted);font-size:.92rem;margin-bottom:16px}
   .go{font-weight:700;font-size:.9rem;color:var(--green)}
 
+  /* ---------- journey ---------- */
+  #journey{background:var(--bg2);border-top:1px solid rgba(0,230,118,.08);
+    border-bottom:1px solid rgba(0,230,118,.08)}
+  .journey{display:flex;align-items:stretch;gap:6px}
+  .j-arrow{flex:0 0 auto;align-self:center;width:46px;height:46px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(0,230,118,.06);color:var(--green);
+    font-size:1.5rem;line-height:1;cursor:pointer;transition:all .25s}
+  .j-arrow:hover{background:rgba(0,230,118,.16);box-shadow:0 0 18px rgba(0,230,118,.25)}
+  .j-scroll{flex:1;min-width:0;overflow-x:auto;scrollbar-width:thin;
+    scrollbar-color:rgba(0,230,118,.4) transparent;padding:6px 2px 14px}
+  .j-scroll::-webkit-scrollbar{height:6px}
+  .j-scroll::-webkit-scrollbar-thumb{background:rgba(0,230,118,.35);border-radius:3px}
+  .j-strip{display:flex;position:relative;width:max-content;min-width:100%;padding:0 24px}
+  .j-line{position:absolute;left:0;right:0;top:50%;height:2px;transform:translateY(-50%);
+    background:linear-gradient(90deg,transparent,rgba(0,230,118,.65) 6%,rgba(0,230,118,.65) 94%,transparent);
+    box-shadow:0 0 14px rgba(0,230,118,.5);pointer-events:none}
+  .j-item{flex:0 0 250px;width:250px;display:grid;grid-template-rows:1fr auto 1fr}
+  .j-slot{display:flex;flex-direction:column;justify-content:flex-end;padding:0 12px;min-height:0}
+  .j-slot.j-below{justify-content:flex-start}
+  .j-node{position:relative;z-index:2;background:none;border:none;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:9px;padding:14px 0;font-family:inherit}
+  .j-ring{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:#0a130c;border:2px solid rgba(0,230,118,.55);
+    box-shadow:0 0 0 6px rgba(0,230,118,.07),0 0 24px rgba(0,230,118,.35);
+    transition:transform .3s,box-shadow .3s,border-color .3s}
+  .j-ring svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.7;
+    stroke-linecap:round;stroke-linejoin:round}
+  .j-node:hover .j-ring,.j-node.active .j-ring{transform:scale(1.1);border-color:var(--green);
+    box-shadow:0 0 0 9px rgba(0,230,118,.13),0 0 38px rgba(0,230,118,.65)}
+  .j-num{font-size:.74rem;font-weight:700;letter-spacing:3px;color:var(--muted);transition:color .3s}
+  .j-node.active .j-num{color:var(--green)}
+  .j-card{background:rgba(10,16,11,.92);border:1px solid var(--border);border-radius:18px;
+    padding:24px 22px;position:relative;backdrop-filter:blur(6px);
+    transition:transform .3s,border-color .3s,box-shadow .3s}
+  .j-card.lit{transform:translateY(-5px);border-color:rgba(0,230,118,.6);
+    box-shadow:0 16px 44px rgba(0,230,118,.16)}
+  .j-tag{display:block;font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--green);margin-bottom:10px}
+  .j-tag.gold{color:var(--gold)}
+  .j-card h3{font-size:1.08rem;margin-bottom:8px;letter-spacing:-.2px}
+  .j-card p{color:var(--muted);font-size:.88rem;line-height:1.55}
+  .j-above .j-card::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:22px;
+    transform:translateX(-50%);background:linear-gradient(180deg,var(--green),rgba(0,230,118,.1))}
+  .j-below .j-card::before{content:"";position:absolute;left:50%;bottom:100%;width:2px;height:22px;
+    transform:translateX(-50%);background:linear-gradient(0deg,var(--green),rgba(0,230,118,.1))}
+  @media(max-width:640px){
+    .j-item{flex-basis:220px;width:220px}
+    .j-arrow{width:38px;height:38px;font-size:1.2rem}
+  }
+  @media (prefers-reduced-motion:reduce){.j-ring,.j-card{transition:none}}
+
   /* ---------- about ---------- */
   .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
   @media(max-width:840px){.about-grid{grid-template-columns:1fr}}
@@ -221,7 +272,7 @@
     <button class="burger" id="burger" aria-label="Menu">☰</button>
     <div class="links" id="navLinks">
       <a href="#work">Work</a><a href="#services">Services</a>
-      <a href="#about">About</a><a href="#contact">Contact</a>
+      <a href="#journey">Journey</a><a href="#about">About</a><a href="#contact">Contact</a>
     </div>
     <a class="btn" href="#contact">Let's talk</a>
   </div>
@@ -357,6 +408,114 @@
   </div>
 </section>
 
+<section id="journey">
+  <div class="wrap">
+    <div class="eyebrow2 reveal">My Journey</div>
+    <h2 class="reveal">From Curiosity to <span class="grad">Creative Technology</span></h2>
+    <p class="lead reveal">The story behind the creativity — tap any step to explore.</p>
+    <div class="journey reveal">
+      <button class="j-arrow j-prev" aria-label="Scroll journey left">&#8249;</button>
+      <div class="j-scroll" id="jScroll">
+        <div class="j-strip">
+          <div class="j-line" aria-hidden="true"></div>
+
+          <div class="j-item">
+            <div class="j-slot j-above">
+              <div class="j-card">
+                <span class="j-tag">Foundation</span>
+                <h3>Discovering Digital Marketing</h3>
+                <p>Completed a two-month Digital Marketing course — content strategy, social media, SEO, audience engagement. Learned that great content means understanding the audience and presenting the message the right way.</p>
+              </div>
+            </div>
+            <button class="j-node" aria-label="Step 1: Discovering Digital Marketing">
+              <span class="j-ring"><svg viewBox="0 0 24 24"><path d="M3 10v4h3l7 4V6l-7 4H3z"/><path d="M17 9a4 4 0 010 6"/><path d="M19.5 6.5a8 8 0 010 11"/></svg></span>
+              <span class="j-num">01</span>
+            </button>
+            <div class="j-slot j-below"></div>
+          </div>
+
+          <div class="j-item">
+            <div class="j-slot j-above"></div>
+            <button class="j-node" aria-label="Step 2: Exploring the Possibilities of AI">
+              <span class="j-ring"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg></span>
+              <span class="j-num">02</span>
+            </button>
+            <div class="j-slot j-below">
+              <div class="j-card">
+                <span class="j-tag">Exploration</span>
+                <h3>Exploring the Possibilities of AI</h3>
+                <p>Started with ChatGPT and Google Gemini for research and scripting, then Flow AI for image and video generation. Built a repeatable workflow: Research &rarr; Idea &rarr; Story &rarr; Prompt &rarr; Generation &rarr; Refinement &rarr; Final Creation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="j-item">
+            <div class="j-slot j-above">
+              <div class="j-card">
+                <span class="j-tag">Experimentation</span>
+                <h3>Learning Through Real Projects</h3>
+                <p>Miniature construction timelapses, character travel videos, UGC-style product ads, and a 30-second GPT-6 Astra motion graphic. Every project sharpened visual storytelling and creative judgment.</p>
+              </div>
+            </div>
+            <button class="j-node" aria-label="Step 3: Learning Through Real Projects">
+              <span class="j-ring"><svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6l-5 9a2 2 0 001.8 3h10.4a2 2 0 001.8-3l-5-9V3"/><path d="M7.5 15h9"/></svg></span>
+              <span class="j-num">03</span>
+            </button>
+            <div class="j-slot j-below"></div>
+          </div>
+
+          <div class="j-item">
+            <div class="j-slot j-above"></div>
+            <button class="j-node" aria-label="Step 4: 61,000 Impressions on LinkedIn">
+              <span class="j-ring"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></span>
+              <span class="j-num">04</span>
+            </button>
+            <div class="j-slot j-below">
+              <div class="j-card">
+                <span class="j-tag gold">Breakthrough</span>
+                <h3>61,000 Impressions on LinkedIn</h3>
+                <p>An AI creative video post passed 61,000 impressions — proof that a distinctive idea plus visual storytelling makes people stop, watch, and engage.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="j-item">
+            <div class="j-slot j-above">
+              <div class="j-card">
+                <span class="j-tag">Credentials</span>
+                <h3>Developing Professional Skills</h3>
+                <p>Google AI Professional credential, AI internship with CodeAlpha (July 2026), and Microsoft Excel training via NVTTI — combining creativity with research and analytical thinking.</p>
+              </div>
+            </div>
+            <button class="j-node" aria-label="Step 5: Developing Professional Skills">
+              <span class="j-ring"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-2.5L17 21l-1.5-7.5"/></svg></span>
+              <span class="j-num">05</span>
+            </button>
+            <div class="j-slot j-below"></div>
+          </div>
+
+          <div class="j-item">
+            <div class="j-slot j-above"></div>
+            <button class="j-node" aria-label="Step 6: Where I'm Going">
+              <span class="j-ring"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
+              <span class="j-num">06</span>
+            </button>
+            <div class="j-slot j-below">
+              <div class="j-card">
+                <span class="j-tag">Vision</span>
+                <h3>Where I'm Going</h3>
+                <p>Growing into a versatile AI Creative Technologist — AI video, UGC ads, brand storytelling. &ldquo;AI gives me new possibilities. Creativity gives those possibilities direction.&rdquo;</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="j-arrow j-next" aria-label="Scroll journey right">&#8250;</button>
+    </div>
+  </div>
+</section>
+
 <section id="about">
   <div class="wrap">
     <div class="eyebrow2 reveal">About</div>
@@ -438,7 +597,7 @@
 
   // nav: scrolled state + active section link
   var nav = document.querySelector('nav');
-  var secIds = ['work','services','about','contact'];
+  var secIds = ['work','services','journey','about','contact'];
   var linkEls = Array.prototype.slice.call(document.querySelectorAll('#navLinks a'));
   var ticking = false;
   function onScroll(){
@@ -479,6 +638,29 @@
     }, {threshold:.5});
     obs.observe(b);
   });
+
+  // journey timeline interactions
+  var jScroll = document.getElementById('jScroll');
+  if (jScroll) {
+    Array.prototype.forEach.call(document.querySelectorAll('.j-arrow'), function(btn){
+      btn.addEventListener('click', function(){
+        jScroll.scrollBy({left:(btn.classList.contains('j-next') ? 1 : -1) * 300, behavior:'smooth'});
+      });
+    });
+    var jNodes = Array.prototype.slice.call(document.querySelectorAll('.j-node'));
+    function activateJourney(i){
+      jNodes.forEach(function(n, k){
+        var on = (k === i);
+        n.classList.toggle('active', on);
+        var card = n.parentElement.querySelector('.j-card');
+        if (card) card.classList.toggle('lit', on);
+      });
+    }
+    jNodes.forEach(function(n, i){
+      n.addEventListener('click', function(){ activateJourney(i); });
+    });
+    activateJourney(0);
+  }
 </script>
 </body>
 </html>
