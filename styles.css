@@ -11,9 +11,3 @@
 .viewpill{position:absolute;left:50%;bottom:18px;transform:translate(-50%,12px);opacity:0;background:#fff;color:#0b1220;font-weight:800;font-size:.78rem;padding:10px 22px;border-radius:999px;transition:all .35s ease;white-space:nowrap;z-index:3}
 .work-card:hover .viewpill{opacity:1;transform:translate(-50%,0)}
 .work-card:hover{transform:translateY(-10px);box-shadow:0 26px 60px rgba(0,0,0,.55);border-color:rgba(255,255,255,.4)}
-.work-card.feat{grid-column:1/-1;display:grid;grid-template-columns:1.05fr .95fr}
-.work-card.feat .thumb{height:100%;min-height:320px;border-bottom:0;border-right:1px solid var(--c)}
-.work-card.feat .work-body{display:flex;flex-direction:column;justify-content:center;padding:40px}
-.work-card.feat .viewpill{left:auto;right:24px;transform:translate(0,12px)}
-.work-card.feat:hover .viewpill{transform:translate(0,0)}
-@media(max-width:760px){.work-card.feat{grid-template-columns:1fr}.work-card.feat .thumb{min-height:230px;border-right:0;border-bottom:1px solid var(--c)}.work-card.feat .viewpill{left:50%;right:auto;transform:translate(-50%,12px)}.work-card.feat:hover .viewpill{transform:translate(-50%,0)}}
