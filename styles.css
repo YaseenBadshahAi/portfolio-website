@@ -17,6 +17,9 @@
 .work-scroll.dg{cursor:grabbing;scroll-snap-type:none}
 .work-scroll.dg .work-card{pointer-events:none}
 .work-scroll img{-webkit-user-drag:none;user-select:none}
-.work-hscroll{position:relative}
-.work-sticky{position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.work-hscroll{position:relative;overflow:hidden}
+.work-pin{height:100vh;height:100dvh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.work-pin.fixed{position:fixed;top:0;left:0;right:0;z-index:5}
+.work-pin.past{position:absolute;left:0;right:0;bottom:0}
+.work-spacer{height:0}
 .work-drive.jd{overflow:hidden;scroll-snap-type:none;cursor:default}
