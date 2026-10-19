@@ -11,3 +11,5 @@
 .viewpill{position:absolute;left:50%;bottom:18px;transform:translate(-50%,12px);opacity:0;background:#fff;color:#0b1220;font-weight:800;font-size:.78rem;padding:10px 22px;border-radius:999px;transition:all .35s ease;white-space:nowrap;z-index:3}
 .work-card:hover .viewpill{opacity:1;transform:translate(-50%,0)}
 .work-card:hover{transform:translateY(-10px);box-shadow:0 26px 60px rgba(0,0,0,.55);border-color:rgba(255,255,255,.4)}
+
+/* deploy refresh: work-section scroll update */
