@@ -13,3 +13,7 @@
 .work-card:hover{transform:translateY(-10px);box-shadow:0 26px 60px rgba(0,0,0,.55);border-color:rgba(255,255,255,.4)}
 
 /* deploy refresh: work-section scroll update */
+.work-scroll{cursor:grab;touch-action:pan-x pan-y}
+.work-scroll.dg{cursor:grabbing;scroll-snap-type:none}
+.work-scroll.dg .work-card{pointer-events:none}
+.work-scroll img{-webkit-user-drag:none;user-select:none}
