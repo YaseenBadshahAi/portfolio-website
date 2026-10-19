@@ -23,7 +23,7 @@
 
 
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.w-strip{display:flex;position:relative;padding:0 12px}
+.w-strip{display:flex;position:relative;width:max-content;min-width:100%;padding:0 12px}
 .w-item{flex:0 0 284px;display:grid;grid-template-rows:1fr auto 1fr}
 .w-slot{display:flex;flex-direction:column;justify-content:flex-end;padding:8px 10px;min-height:150px}
 .w-slot.w-below{justify-content:flex-start}
